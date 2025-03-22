@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arise - Fragrances</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/logo/Arise .png" type="image/x-icon">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="overlay" data-overlay></div>
+
+
+<!-- HEADER -->
+<header>
+  <div class="header-top">
+    <a href="/" class="site-logo">
+      <img src="/logo/arise.png" alt="Arise Logo">
+    </a>
+    
+    <div class="header-alert-news">
+      <p><b>Free Shipping</b> This Week on Orders Over $250</p>
+    </div>
+
+    <div class="header-user-actions">
+      <button class="action-btn">
+        <ion-icon name="person-outline"></ion-icon>
+      </button>
+      <button class="action-btn" id="cartIcon">
+        <ion-icon name="bag-handle-outline"></ion-icon>
+        <span class="count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mini Cart Dropdown -->
+<div class="mini-cart" id="miniCart">
+  <div class="mini-cart-header">
+    <p>Subtotal: <strong>CAD $<span id="cartSubtotal">0.00</span></strong></p>
+    <button class="view-cart-btn">View Bag</button>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+  <div class="mini-cart-items" id="miniCartItems">
+    <!-- Products will be injected here -->
+  </div>
+</div>
+
+<!-- User Dropdown -->
+<div class="user-dropdown" id="userDropdown">
+  <p>Welcome, <strong id="usernameDisplay">Guest</strong></p>
+  <button class="login-btn" onclick="window.location.href='/login.html'">Login</button>
+</div>
+
+
+  <!-- BANNER -->
+  <div class="banner">
+    <div class="container">
+        <div class="slider-item">
+          <img src="/images/Design sans titre.png" alt="Frangraces example" class="banner-img">
+      </div>
+    </div>
+  </div>
+  </section>
+  <!-- PRODUCT LISTING -->
+  <section class="product-listing">
+    <h2 class="section-title">All Fragrances</h2>
+    <div class="product-search">
+      <input type="text" id="searchInput" placeholder="Search for a fragrance..." onkeyup="filterProducts()">
+    </div>
+  
+    <div class="filters">
+      <select id="availabilityFilter" name="availability">
+        <option value="all">Gender</option>
+        <option value="men">MEN</option>
+        <option value="women">WOMEN</option>
+        <option value="unisex">UNISEX</option>
+      </select>
+      
+      <select id="brandFilter">
+        <option value="all">Brands</option>
+        <option value="azzaro">Azzaro</option>
+        <option value="carolina-herrera">Carolina Herrera</option>
+        <option value="chanel">Chanel</option>
+        <option value="creed">Creed</option>
+        <option value="emporio-armani">Emporio Armani</option>
+        <option value="gucci">Gucci</option>
+        <option value="hugo-boss">Hugo Boss</option>
+        <option value="jean-paul-gaultier">Jean Paul Gaultier</option>
+        <option value="lancome">Lancome</option>
+        <option value="louis-vuitton">Louis Vuitton</option>
+        <option value="valentino">Valentino</option>
+        <option value="versace">Versace</option>
+        <option value="yves-saint-laurent">Yves Saint Laurent</option>
+      </select>
+    </div>
+
+    <div class="product-grid">
+      <div class="product" data-brand="jean-paul-gaultier" data-gender="men">
+        <img src="/images/product1.jpg" alt="Jean Paul Gaultier Le Male Le Parfum EDP Intense">
+        <p class="product-title">Jean Paul Gaultier Le Male Le Parfum EDP Intense</p>
+        <div class="product-rating">⭐⭐⭐⭐⭐ 155</div>
+        <p class="product-price">From $150.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="jean-paul-gaultier" data-gender="men">
+        <span class="sale-badge">Out of Stock</span>
+        <img src="/images/jp2.png" alt="Jean Paul Gaultier Le Male Elixir Parfum">
+        <p class="product-title">Jean Paul Gaultier Le Male Elixir Parfum</p>
+        <div class="product-rating">⭐⭐⭐⭐ 120</div>
+        <p class="product-price"><span class="discounted">$153.00</span></p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="valentino" data-gender="men">
+        <img src="/images/OIP (3).jpeg" alt="Valentino Uomo Born In Roma EDT">
+        <p class="product-title">Valentino Uomo Born In Roma EDT</p>
+        <div class="product-rating">⭐⭐⭐⭐⭐ 130</div>
+        <p class="product-price">From $130.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="emporio-armani" data-gender="men">
+        <img src="/images/Strong with you.jpeg" alt="Emporio Armani Stronger With You Intensely EDP">
+        <p class="product-title">Emporio Armani Stronger With You Intensely EDP</p>
+        <div class="product-rating">⭐⭐⭐⭐⭐ 151</div>
+        <p class="product-price">From $125.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="product" data-brand="yves-saint-laurent" data-gender="women">
+        <img src="/images/OIP (1).jpeg" alt="Yves Saint Laurent Black Opium EDP">
+        <p class="product-title">Yves Saint Laurent Black Opium EDP</p>
+        <div class="product-rating">⭐⭐⭐⭐⭐ 155</div>
+        <p class="product-price">From $150.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="lancome" data-gender="women">
+        <span class="sale-badge">Out of Stock</span>
+        <img src="/images/la vie est belle lancome.jpg" alt="La Vie Est Belle Lancom">
+        <p class="product-title">La Vie Est Belle Lancome</p>
+        <div class="product-rating">⭐⭐⭐⭐ 120</div>
+        <p class="product-price"><span class="discounted">$150.00</span></p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="carolina-herrera" data-gender="women">
+        <img src="/images/crl.png" alt="Carolina Herrera Good Girl EDP">
+        <p class="product-title">Carolina Herrera Good Girl EDP</p>
+        <div class="product-rating">⭐⭐⭐⭐⭐ 130</div>
+        <p class="product-price">From $167.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="louis-vuitton" data-gender="women">
+        <img src="/images/crl2.png" alt="Louis Vuitton Attrape Reves EDP">
+        <p class="product-title">Louis Vuitton Attrape Reves EDP</p>
+        <div class="product-rating">⭐⭐⭐⭐⭐ 151</div>
+        <p class="product-price">From $410.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="product" data-brand="louis-vuitton" data-gender="unisex">
+        <img src="/images/crl3.png" alt="Louis Vuitton Les Sables Roses EDP">
+        <p class="product-title">Louis Vuitton Les Sables Roses EDP</p>
+        <div class="product-rating">⭐⭐⭐⭐⭐ 155</div>
+        <p class="product-price">From $480.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="gucci" data-gender="men">
+        <span class="sale-badge">Out of Stock</span>
+        <img src="/images/crl5.png" alt="Gucci Guilty Pour Homme EDT">
+        <p class="product-title">Gucci Guilty Pour Homme EDT</p>
+        <div class="product-rating">⭐⭐⭐⭐ 120</div>
+        <p class="product-price"><span class="discounted">$120.00</span></p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="chanel" data-gender="men">
+        <img src="/images/Bleu de chanel.jpg" alt="Bleu de Chanel">
+        <p class="product-title">Bleu de Chanel</p>
+        <div class="product-rating">⭐⭐⭐⭐⭐ 130</div>
+        <p class="product-price">From $240.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="yves-saint-laurent" data-gender="women">
+        <img src="/images/yves.jpg" alt="Yves Saint Laurent Libre Le Parfum EDP">
+        <p class="product-title">Yves Saint Laurent Libre Le Parfum EDP</p>
+        <div class="product-rating">⭐⭐⭐⭐⭐ 151</div>
+        <p class="product-price">From $175.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="product" data-brand="versace" data-gender="women">
+        <img src="/images/versacy.jpg" alt="Versace Pour Femme Dylan Blue EDP">
+        <p class="product-title">Versace Pour Femme Dylan Blue EDP</p>
+        <div class="product-rating">⭐⭐⭐⭐⭐ 155</div>
+        <p class="product-price">From $150.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="azzaro" data-gender="men">
+        <span class="sale-badge">Out of Stock</span>
+        <img src="/images/azzaro.jpg" alt="Azzaro The Most Wanted Parfum">
+        <p class="product-title">Azzaro The Most Wanted Parfum</p>
+        <div class="product-rating">⭐⭐⭐⭐ 120</div>
+        <p class="product-price"><span class="discounted">$135.00</span></p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="hugo-boss" data-gender="men">
+        <img src="/images/boss.jpg" alt="Boss">
+        <p class="product-title">Boss</p>
+        <div class="product-rating">⭐⭐⭐⭐⭐ 130</div>
+        <p class="product-price">From $100.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="louis-vuitton" data-gender="unisex">
+        <img src="/images/pacific-chill-louis-vuitton_1200.webp" alt="Louis Vuitton Pacific Chill EDP">
+        <p class="product-title">Louis Vuitton Pacific Chill EDP</p>
+        <div class="product-rating">⭐⭐⭐⭐⭐ 151</div>
+        <p class="product-price">From $410.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="creed" data-gender="men">
+        <img src="/images/creed.png" alt="Creed Aventus EDP">
+        <p class="product-title">Creed Aventus EDP</p>
+        <div class="product-rating">⭐⭐⭐⭐⭐ 155</div>
+        <p class="product-price">From $450.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="louis-vuitton" data-gender="unisex">
+        <span class="sale-badge">Out of Stock</span>
+        <img src="/images/crl4.png" alt="Louis Vuitton On The Beach EDP">
+        <p class="product-title">Louis Vuitton On The Beach EDP</p>
+        <div class="product-rating">⭐⭐⭐⭐ 120</div>
+        <p class="product-price"><span class="discounted">$410.00</span></p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="gucci" data-gender="women">
+        <img src="/images/gucciguilty.jpg" alt="Gucci Guilty">
+        <p class="product-title">Gucci Guilty</p>
+        <div class="product-rating">⭐⭐⭐⭐⭐ 130</div>
+        <p class="product-price">From $100.00</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+  
+  
+<!-- SECTIONS ROW: Testimonials and Services -->
+<section class="info-sections">
+
+  <!-- Testimonials -->
+  <div class="info-box testimonial-section">
+    <h2>Testimonials</h2>
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+        <img src="/images/OIP.jpeg" alt="Customer 1" class="testimonial-img">
+        <h3>ALAN</h3>
+        <p class="testimonial-quote">“Fast delivery, really liked the scent. It was very wonderful.”</p>
+      </div>
+
+      <div class="testimonial-card">
+        <img src="/images/download.jpeg" alt="Customer 2" class="testimonial-img">
+        <h3>SAMUEL</h3>
+        <p class="testimonial-quote">“I was amazed by the packaging and fragrance! Will buy again.”</p>
+      </div>
+
+      <div class="testimonial-card">
+        <img src="/images/download (1).jpeg" alt="Customer 3" class="testimonial-img">
+        <h3>JAMES</h3>
+        <p class="testimonial-quote">“Excellent service and great fragrance recommendations.”</p>
+      </div>
+
+      <div class="testimonial-card">
+        <img src="/images/OIP (4).jpeg" alt="Customer 4" class="testimonial-img">
+        <h3>LINA</h3>
+        <p class="testimonial-quote">“The best fragrance site I’ve used so far. Super fast delivery!”</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="info-box services">
+    <h2>Our Services</h2>
+    <ul>
+      <li><ion-icon name="boat-outline"></ion-icon> <b>Worldwide Delivery</b> - For Orders Over $300</li>
+      <li><ion-icon name="rocket-outline"></ion-icon> <b>Next Day Delivery</b> - CAD Orders Only</li>
+      <li><ion-icon name="call-outline"></ion-icon> <b>Best Online Support</b> - Hours: 8AM - 11PM</li>
+      <li><ion-icon name="arrow-undo-outline"></ion-icon> <b>Return Policy</b> - Easy & Free Returns</li>
+      <li><ion-icon name="ticket-outline"></ion-icon> <b>30% Money Back</b> - For Orders Over $100</li>
+    </ul>
+  
+    <hr style="margin: 25px 0; border-color: #333;">
+  
+    <!-- Contact Section -->
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+      <div class="contact-item">
+        <ion-icon name="location-outline"></ion-icon>
+        <p>1385 Woodroffe Ave, Ottawa, ON K2G 1V8, Canada</p>
+      </div>
+      <div class="contact-item">
+        <ion-icon name="call-outline"></ion-icon>
+        <p>(613) 234-5678</p>
+      </div>
+      <div class="contact-item">
+        <ion-icon name="mail-outline"></ion-icon>
+        <p><a href="mailto:arisefragrance@gmail.com">arisefragrance@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<!-- Follow Us Section -->
+<section class="social-section">
+  <h2>Follow Us</h2>
+  <ul class="social-links">
+    <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+    <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+    <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+    <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+  </ul>
+</section>
+
+<footer class="footer">
+  <p class="copyright">
+    © <span id="current-year"></span> Arise. All rights reserved.
+  </p>
+</footer>
+
+  <!--
+    - custom js link
+  -->
+  <script src="/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
