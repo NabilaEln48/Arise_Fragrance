@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Bag - Arise</title>
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="header-top">
+      <a href="/" class="site-logo">
+        <img src="/logo/arise.png" alt="Arise Logo">
+      </a>
+    </div>
+  </header>
+
+  <main class="checkout-container" style="margin-top: 100px; padding: 40px 20px; max-width: 1000px; margin-left: auto; margin-right: auto;">
+    <h2 style="text-align: center; font-size: 28px; margin-bottom: 30px; color: #b30000;">My Bag</h2>
+
+    <form class="checkout-form" style="display: flex; flex-wrap: wrap; gap: 40px;">
+      <!-- Billing Info -->
+      <div style="flex: 1; min-width: 300px;">
+        <h3 style="margin-bottom: 15px;">Billing Information</h3>
+        <label>Full Name</label>
+        <input type="text" placeholder="John Doe" required>
+
+        <label>Email</label>
+        <input type="email" placeholder="john@example.com" required>
+
+        <label>Phone Number</label>
+        <input type="tel" placeholder="123-456-7890" required>
+
+        <label>Address</label>
+        <input type="text" placeholder="123 Main St" required>
+
+        <label>City</label>
+        <input type="text" placeholder="Ottawa" required>
+
+        <label>Postal Code</label>
+        <input type="text" placeholder="K2G 1V8" required>
+
+        <label>Country</label>
+        <select required>
+          <option value="Canada">Canada</option>
+          <option value="USA">USA</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <!-- Order Summary -->
+      <div style="flex: 1; min-width: 300px;">
+        <h3 style="margin-bottom: 15px;">Order Summary</h3>
+        <div class="order-summary-box" style="background: #f9f9f9; padding: 20px; border-radius: 10px;">
+          <div class="order-item" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+            <span>Product 1</span>
+            <span>$150.00</span>
+          </div>
+          <div class="order-item" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+            <span>Product 2</span>
+            <span>$130.00</span>
+          </div>
+          <hr>
+          <div class="order-total" style="display: flex; justify-content: space-between; font-weight: bold; margin-top: 10px;">
+            <span>Total</span>
+            <span>$280.00</span>
+          </div>
+        </div>
+
+        <button type="submit" style="margin-top: 20px; width: 100%; padding: 12px; background-color: #b30000; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer;">Place Order</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="footer" style="margin-top: 60px;">
+    <p>© <span id="current-year"></span> Arise. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

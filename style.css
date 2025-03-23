@@ -1,4 +1,6 @@
-/* Reset and Base Styles */
+/* ======================================
+   BASE STYLES AND RESET
+====================================== */
 *,
 *::before,
 *::after {
@@ -7,19 +9,15 @@
   margin: 0;
 }
 
-.site-logo img {
-  height: 100px; /* adjust as needed */
-  width: auto;
-  display: block;
-}
-
-
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   color: #000000;
   background-color: #fff;
   scroll-behavior: smooth;
+  /* Add padding for fixed header and mobile bottom nav */
+  padding-top: 60px;
+  padding-bottom: 70px; /* space for bottom nav */
 }
 
 img {
@@ -28,7 +26,9 @@ img {
   height: auto;
 }
 
-/* Utility Classes */
+/* ======================================
+   UTILITY CLASSES
+====================================== */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -50,15 +50,17 @@ button {
   background: none;
 }
 
-/*---------
-----Header--
----------- */
+/* ======================================
+   HEADER STYLES
+====================================== */
 header {
-  background: #ffffff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
+  background-color: #000000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .header-top {
@@ -66,31 +68,29 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px; /* reduced from default */
+  height: 60px; /* Reduced height for better mobile experience */
 }
 
+/* Logo styling */
 .site-logo img {
-  height: 60px; /* reduce from 100px */
+  height: 60px; /* Reduced size */
   width: auto;
   display: block;
 }
 
-
+/* Header title (if needed) */
 .header-top h1 {
   font-size: 2rem;
   color: #000000;
 }
 
+/* Social media container in header */
 .header-social-container {
   display: flex;
   gap: 1rem;
 }
 
-.header-social-container .social-link ion-icon {
-  font-size: 1.4rem;
-  color: #444;
-}
-
+/* Alert/news banner in header */
 .header-alert-news {
   background: #000000;
   padding: 0.5rem 1rem;
@@ -100,13 +100,15 @@ header {
   color: #ffffff;
 }
 
+/* User action buttons (cart, user, etc) */
 .header-user-actions .action-btn {
   margin-left: 1rem;
   font-size: 1.5rem;
-  color: #555;
+  color: #ffffff;
   position: relative;
 }
 
+/* Count badge for cart items */
 .count {
   position: absolute;
   top: -5px;
@@ -118,67 +120,115 @@ header {
   border-radius: 50%;
 }
 
-/* -------
-    CART
----------*/
-.cart-wrapper {
+/* ======================================
+   CART & USER DROPDOWNS
+====================================== */
+.header-user-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   position: relative;
 }
 
-.mini-cart {
-  position: absolute;
-  top: 40px;
-  right: 0;
-  width: 280px;
-  background: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  display: none;
-  z-index: 1000;
-  border-radius: 10px;
-  padding: 15px;
+.cart-wrapper,
+.user-wrapper {
+  position: relative;
 }
 
-.cart-wrapper:hover .mini-cart {
+/* Shared dropdown styles */
+.mini-cart,
+.user-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  padding: 15px;
+  display: none;
+  z-index: 1001;
+}
+
+/* Toggle dropdown visibility on hover */
+.cart-wrapper:hover .mini-cart,
+.user-wrapper:hover .user-dropdown {
   display: block;
 }
 
+/* Cart icon notification counter */
+.count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: #ffffff;
+  color: #000000;
+  font-size: 0.7rem;
+  padding: 2px 5px;
+  border-radius: 50%;
+}
+
+/* ======================================
+   MINI CART STYLING
+====================================== */
+/* Mini cart header area */
 .mini-cart-header {
   border-bottom: 1px solid #ccc;
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
 
+/* Scrollable area for cart items */
 .mini-cart-items {
   max-height: 200px;
   overflow-y: auto;
 }
 
+/* Individual cart item */
 .mini-cart-item {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  gap: 10px;
   font-size: 14px;
   margin-bottom: 8px;
 }
 
+/* Product in cart styling */
+.mini-cart-product {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* Cart product image */
+.mini-cart-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Product info in cart */
+.mini-cart-info {
+  flex: 1;
+}
+
+/* Remove button for cart items */
 .remove-btn {
   position: absolute;
   top: 5px;
   right: 5px;
   background: none;
   border: none;
-  color: rgb(0, 0, 0);
+  color: #000;
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
 }
 
-.mini-cart-product {
-  position: relative;
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-}
-
+/* Cart action buttons */
 .view-cart-btn,
 .checkout-btn {
   width: 100%;
@@ -186,15 +236,15 @@ header {
   margin-top: 10px;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
-  border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
+/* View cart button style */
 .view-cart-btn {
   background-color: #fff;
-  color: #000;
+  color: #000000;
   border: 1px solid #000;
 }
 
@@ -202,48 +252,37 @@ header {
   background-color: #f0f0f0;
 }
 
+/* Checkout button style */
 .checkout-btn {
   background-color: #000;
   color: #fff;
+  border: none;
 }
 
 .checkout-btn:hover {
   background-color: #0d0053;
 }
 
-
-/* ----------
-user icon 
-----------*/
-
+/* ======================================
+   USER DROPDOWN STYLES
+====================================== */
 .user-dropdown {
-  position: absolute;
-  top: 60px;
-  right: 100px; /* adjust as needed to be near the user icon */
-  background-color: #fff;
-  color: #000;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  display: none;
+  right: 0;
   width: 200px;
-  z-index: 1000;
 }
 
 .user-dropdown p {
-  margin-bottom: 10px;
   font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .login-btn {
   width: 100%;
-  padding: 8px 10px;
-  border: none;
-  background-color: #000;
+  padding: 10px;
+  background: #000;
   color: #fff;
   font-weight: 600;
   border-radius: 5px;
-  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
@@ -251,35 +290,53 @@ user icon
   background-color: #0d0053;
 }
 
-
-
-/* -------
-Search
------ */
+/* ======================================
+   SEARCH STYLES
+====================================== */
 .header-search-container {
   display: flex;
   justify-content: center;
-  padding: 1rem 0;
+  align-items: center;
+  margin: 30px auto 10px;
+  width: 100%;
 }
 
 .search-field {
-  padding: 0.6rem 1rem;
-  border: 1px solid #ffffff;
-  border-radius: 25px 0 0 25px;
-  width: 60%;
+  height: 44px;
+  padding: 0 16px;
+  border: 2px solid #000;
+  border-right: none;
+  border-radius: 50px 0 0 50px;
+  font-size: 14px;
+  width: 300px;
+  max-width: 90%;
+  background-color: #fff;
+  color: #000;
+  outline: none;
 }
 
 .search-btn {
-  padding: 0.6rem 1rem;
-  background-color: #323fb5;
-  border-radius: 0 25px 25px 0;
+  height: 44px;
+  padding: 0 20px;
+  background-color: #000;
   color: white;
-  font-size: 1.2rem;
+  font-size: 14px;
+  font-weight: 500;
+  border: 2px solid #000;
+  border-left: none;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* ----
-Navigation 
--------*/
+.search-btn:hover {
+  background-color: #000000;
+}
+
+
+/* ======================================
+   NAVIGATION STYLES
+====================================== */
 .desktop-navigation-menu {
   background: #ffffff;
   padding: 1rem 0;
@@ -301,75 +358,27 @@ Navigation
   color: #000a69;
 }
 
-/*-----------
- Banner Section
- ------------ */
+/* ======================================
+   BANNER STYLES
+====================================== */
 .banner {
-  margin-top: 1rem;
-}
-
-.slider-container {
+  margin-top: 70px; /* Space below fixed header */
+  padding: 20px;
   display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-}
-
-.slider-item {
-  flex: 0 0 100%;
-  position: relative;
-  scroll-snap-align: start;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner-img {
-  border-radius: 10px;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 12px;
+  object-fit: cover;
 }
 
-.banner-content {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  color: white;
-  background-color: rgba(0,0,0,0.4);
-  padding: 1rem;
-  border-radius: 10px;
-}
-
-.banner-btn {
-  background-color: #fff;
-  color: #000e8d;
-  padding: 0.6rem 1.2rem;
-  border-radius: 25px;
-  font-weight: 500;
-  margin-top: 0.5rem;
-  display: inline-block;
-}
-
-.product-search {
-  margin: 20px 0;
-  text-align: center;
-}
-
-.product-search input {
-  width: 60%;
-  max-width: 500px;
-  padding: 10px 15px;
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 8px;
-  font-size: 16px;
-  background-color: #ffffff;
-  color: #000000;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.product-search input:focus {
-  border-color: #ff5555;
-}
-
-/* -----------
-Tittle frangrances
- -----------*/
+/* ======================================
+   SECTION TITLES
+====================================== */
 .section-title {
   text-align: center;
   font-size: 30px;
@@ -379,9 +388,9 @@ Tittle frangrances
   margin-bottom: 20px;
 }
 
-/*-----------
- filter part
- -----------*/ 
+/* ======================================
+   FILTER STYLES
+====================================== */
 .filters {
   display: flex;
   gap: 20px;
@@ -406,8 +415,9 @@ Tittle frangrances
   border-color: #ff5555;
 }
 
-
-/* Product Grid Styling */
+/* ======================================
+   PRODUCT GRID STYLES
+====================================== */
 .product-grid {
   display: flex;
   flex-wrap: wrap;
@@ -416,8 +426,9 @@ Tittle frangrances
   margin-top: 20px;
 }
 
-
-/* Product Card */
+/* ======================================
+   PRODUCT CARD STYLES
+====================================== */
 .product {
   background: #fff;
   border-radius: 10px;
@@ -438,8 +449,7 @@ Tittle frangrances
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-
-/* Product Image */
+/* Product image container */
 .product img {
   width: 100%;
   height: 220px;
@@ -447,22 +457,21 @@ Tittle frangrances
   border-radius: 10px;
 }
 
-
-/* Product Title */
+/* Product title */
 .product-title {
   font-weight: 600;
   margin-top: 10px;
   font-size: 16px;
 }
 
-/* Star Ratings */
+/* Star ratings */
 .product-rating {
   font-size: 14px;
   color: #997300;
   margin: 5px 0;
 }
 
-/* Pricing */
+/* Product pricing */
 .product-price {
   font-size: 16px;
   font-weight: bold;
@@ -470,13 +479,14 @@ Tittle frangrances
   margin-top: 5px;
 }
 
+/* Discounted price style */
 .discounted {
   text-decoration: line-through;
   color: #999;
   margin-right: 5px;
 }
 
-/* Sale Badge */
+/* Sale badge for products */
 .sale-badge {
   position: absolute;
   top: 10px;
@@ -489,6 +499,7 @@ Tittle frangrances
   border-radius: 5px;
 }
 
+/* Add to cart button */
 .add-to-cart-btn {
   background-color: #000000;
   color: #ffffff;
@@ -507,7 +518,9 @@ Tittle frangrances
   transform: scale(1.05);
 }
 
-/* Container for both Testimonials and Services */
+/* ======================================
+   INFO SECTIONS (TESTIMONIALS & SERVICES)
+====================================== */
 .info-sections {
   display: flex;
   flex-wrap: wrap;
@@ -518,7 +531,7 @@ Tittle frangrances
   justify-content: space-between;
 }
 
-/* Shared box style */
+/* Shared box style for testimonials and services */
 .info-box {
   flex: 1 1 45%;
   background-color: #ffffff;
@@ -527,7 +540,7 @@ Tittle frangrances
   box-shadow: 0 0 10px #0d0053;
 }
 
-/* Testimonials */
+/* Section headings */
 .testimonial-section h2,
 .services h2 {
   font-size: 28px;
@@ -536,16 +549,16 @@ Tittle frangrances
   text-align: center;
 }
 
-/* Grid for testimonial cards */
+/* Testimonial card grid */
 .testimonial-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
-/* ----------
-Indevidual testimonial 
------------*/
+/* ======================================
+   TESTIMONIAL CARD STYLES
+====================================== */
 .testimonial-card {
   background-color: #000000;
   padding: 20px;
@@ -560,6 +573,7 @@ Indevidual testimonial
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
 }
 
+/* Testimonial profile image */
 .testimonial-img {
   width: 80px;
   height: 80px;
@@ -569,6 +583,7 @@ Indevidual testimonial
   margin-bottom: 10px;
 }
 
+/* Testimonial quote style */
 .testimonial-quote {
   font-style: italic;
   color: #ffffff;
@@ -576,9 +591,9 @@ Indevidual testimonial
   font-size: 14px;
 }
 
-/* -----------
-Services List 
--------------*/
+/* ======================================
+   SERVICES LIST STYLES
+====================================== */
 .services ul {
   list-style: none;
   padding: 0;
@@ -598,11 +613,9 @@ Services List
   margin-right: 10px;
 }
 
-
-
-/* ---------------------------
-Contact inside Services Box 
-------------------------------*/
+/* ======================================
+   CONTACT SECTION STYLES
+====================================== */
 .contact-info {
   margin-top: 15px;
 }
@@ -630,10 +643,9 @@ Contact inside Services Box
   text-decoration: underline;
 }
 
-
-/* ----------
-Social Section 
---------------*/
+/* ======================================
+   SOCIAL SECTION STYLES
+====================================== */
 .social-section {
   padding: 2rem 1rem;
   text-align: center;
@@ -656,9 +668,9 @@ Social Section
   color: #51f2f2;
 }
 
-/* ----------------
-/------Footer------
-------------------- */
+/* ======================================
+   FOOTER STYLES
+====================================== */
 .footer {
   background-color: #000000;
   padding: 1.5rem 1rem;
@@ -667,40 +679,112 @@ Social Section
   color: #ffffff;
 }
 
-/* Modal and Toast (for overlay/modal logic) */
-.overlay,
-.modal,
-.notification-toast {
+/* ======================================
+   Menu Mobile 
+====================================== */
+
+/* Hide mobile nav by default (desktop) */
+.mobile-bottom-nav {
   display: none;
 }
 
-/* Responsive */
+/* Show only on mobile */
 @media (max-width: 768px) {
-  .desktop-navigation-menu {
-    display: none;
-  }
-
-  .mobile-bottom-navigation {
+  .mobile-bottom-nav {
     display: flex;
     justify-content: space-around;
-    padding: 1rem;
-    background-color: #fff;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    align-items: center;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+    background-color: #000000;
+    padding: 0.7rem 1rem;
+    border-top: 1px solid #ffffff;
+    box-shadow: 0 -2px 10px rgba(255, 254, 254, 0.05);
+    z-index: 9999;
   }
 
-  .mobile-navigation-menu {
-    display: block;
-    background-color: #fff;
-    padding: 1rem;
-    position: fixed;
-    bottom: 60px;
-    width: 100%;
-    z-index: 1000;
-    max-height: 60vh;
-    overflow-y: auto;
+  .mobile-nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 13px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    position: relative;
   }
+
+  .mobile-nav-btn ion-icon {
+    font-size: 22px;
+    margin-bottom: 2px;
+  }
+
+  .mobile-nav-btn .count {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: #323fb5;
+    color: #ffffff;
+    font-size: 11px;
+    padding: 2px 5px;
+    border-radius: 50%;
+  }
+
+  .header-user-actions {
+    display: none;
+  }
+}
+
+/* ===================
+   MY BAG PAGE STYLES
+====================== */
+.checkout-container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 100px auto 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.checkout-left,
+.checkout-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.order-summary-box {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.order-summary-box .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.order-summary-box .row.total {
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 17px;
+}
+
+.place-order-btn {
+  width: 100%;
+  background: #b30000;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
 }

@@ -198,11 +198,11 @@ function updateMiniCart() {
 
 // procced to checkout button 
 document.querySelector(".view-cart-btn").addEventListener("click", () => {
-  window.location.href = "/cart.html"; // or wherever your full cart page is
+  window.location.href = "/mybag.html"; // or wherever your full cart page is
 });
 
 document.querySelector(".checkout-btn").addEventListener("click", () => {
-  window.location.href = "/checkout.html"; // create this page or adjust the path
+  window.location.href = "/mybag.html"; // create this page or adjust the path
 });
 
 
@@ -222,6 +222,45 @@ userIcon.addEventListener("mouseleave", () => {
   setTimeout(() => {
     if (!userDropdown.matches(":hover")) {
       userDropdown.style.display = "none";
+    }
+  }, 300);
+});
+
+
+// Make mobile nav buttons behave like desktop
+
+document.getElementById("mobileHomeBtn").addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+document.getElementById("mobileSearchBtn").addEventListener("click", () => {
+  const searchInput = document.getElementById("searchInput");
+  if (searchInput) {
+    searchInput.scrollIntoView({ behavior: "smooth" });
+    searchInput.focus();
+  }
+});
+
+document.getElementById("mobileUserBtn").addEventListener("mouseenter", () => {
+  document.getElementById("userDropdown").style.display = "block";
+});
+
+document.getElementById("mobileUserBtn").addEventListener("mouseleave", () => {
+  setTimeout(() => {
+    if (!document.getElementById("userDropdown").matches(":hover")) {
+      document.getElementById("userDropdown").style.display = "none";
+    }
+  }, 300);
+});
+
+document.getElementById("mobileCartBtn").addEventListener("mouseenter", () => {
+  document.getElementById("miniCart").style.display = "block";
+});
+
+document.getElementById("mobileCartBtn").addEventListener("mouseleave", () => {
+  setTimeout(() => {
+    if (!document.getElementById("miniCart").matches(":hover")) {
+      document.getElementById("miniCart").style.display = "none";
     }
   }, 300);
 });

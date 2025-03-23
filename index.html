@@ -11,8 +11,8 @@
   <link rel="shortcut icon" href="/logo/Arise .png" type="image/x-icon">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="/style.css">
-
+  <link rel="stylesheet" href="style.css">
+  
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,87 +27,98 @@
 <!-- HEADER -->
 <header>
   <div class="header-top">
+    
+    <!-- Logo -->
     <a href="/" class="site-logo">
       <img src="/logo/arise.png" alt="Arise Logo">
     </a>
-    
-    <div class="header-alert-news">
-      <p><b>Free Shipping</b> This Week on Orders Over $250</p>
-    </div>
 
+    <!-- User and Cart Actions -->
     <div class="header-user-actions">
-      <button class="action-btn">
-        <ion-icon name="person-outline"></ion-icon>
-      </button>
-      <button class="action-btn" id="cartIcon">
-        <ion-icon name="bag-handle-outline"></ion-icon>
-        <span class="count" id="cartCount">0</span>
-      </button>
+
+      <!-- User Icon + Dropdown -->
+      <div class="user-wrapper">
+        <button class="action-btn" id="userIcon">
+          <ion-icon name="person-outline"></ion-icon>
+        </button>
+        <div class="user-dropdown" id="userDropdown">
+          <p>Welcome, <strong id="usernameDisplay">Guest</strong></p>
+          <button class="login-btn" onclick="window.location.href='/login.html'">Login</button>
+        </div>
+      </div>
+
+      <!-- Cart Icon + Mini Cart -->
+      <div class="cart-wrapper">
+        <button class="action-btn" id="cartIcon">
+          <ion-icon name="bag-handle-outline"></ion-icon>
+          <span class="count" id="cartCount">0</span>
+        </button>
+        <div class="mini-cart" id="miniCart">
+          <div class="mini-cart-header">
+            <p>Subtotal: <strong>CAD $<span id="cartSubtotal">0.00</span></strong></p>
+            
+            <!-- Updated buttons with links -->
+            <button class="view-cart-btn" onclick="window.location.href='mybag.html'">View Bag</button>
+            <button class="checkout-btn" onclick="window.location.href='mybag.html'">Proceed to Checkout</button>
+          </div>
+      
+          <div class="mini-cart-items" id="miniCartItems">
+            <!-- Products will be injected here -->
+          </div>
+        </div>
+      </div>
+      
+
     </div>
   </div>
 </header>
 
-<!-- Mini Cart Dropdown -->
-<div class="mini-cart" id="miniCart">
-  <div class="mini-cart-header">
-    <p>Subtotal: <strong>CAD $<span id="cartSubtotal">0.00</span></strong></p>
-    <button class="view-cart-btn">View Bag</button>
-    <button class="checkout-btn">Proceed to Checkout</button>
-  </div>
-  <div class="mini-cart-items" id="miniCartItems">
-    <!-- Products will be injected here -->
-  </div>
-</div>
-
-<!-- User Dropdown -->
-<div class="user-dropdown" id="userDropdown">
-  <p>Welcome, <strong id="usernameDisplay">Guest</strong></p>
-  <button class="login-btn" onclick="window.location.href='/login.html'">Login</button>
-</div>
-
-
-  <!-- BANNER -->
-  <div class="banner">
-    <div class="container">
-        <div class="slider-item">
-          <img src="/images/Design sans titre.png" alt="Frangraces example" class="banner-img">
-      </div>
+<!-- BANNER -->
+<div class="banner">
+  <div class="container">
+    <div class="slider-item">
+      <img src="/images/Design sans titre.png" alt="Fragrances example" class="banner-img">
     </div>
   </div>
-  </section>
+</div>
+
   <!-- PRODUCT LISTING -->
   <section class="product-listing">
-    <h2 class="section-title">All Fragrances</h2>
-    <div class="product-search">
-      <input type="text" id="searchInput" placeholder="Search for a fragrance..." onkeyup="filterProducts()">
+    <div class="container">
+      <h2 class="section-title">All Fragrances</h2>
+  
+      <div class="header-search-container">
+        <input type="text" class="search-field" id="searchInput" placeholder="Search for a fragrance..." onkeyup="filterProducts()">
+        <button class="search-btn">Search</button>
+      </div>
+      
+      <div class="filters">
+        <select id="availabilityFilter" name="availability">
+          <option value="all">Gender</option>
+          <option value="men">MEN</option>
+          <option value="women">WOMEN</option>
+          <option value="unisex">UNISEX</option>
+        </select>
+  
+        <select id="brandFilter">
+          <option value="all">Brands</option>
+          <option value="azzaro">Azzaro</option>
+          <option value="carolina-herrera">Carolina Herrera</option>
+          <option value="chanel">Chanel</option>
+          <option value="creed">Creed</option>
+          <option value="emporio-armani">Emporio Armani</option>
+          <option value="gucci">Gucci</option>
+          <option value="hugo-boss">Hugo Boss</option>
+          <option value="jean-paul-gaultier">Jean Paul Gaultier</option>
+          <option value="lancome">Lancome</option>
+          <option value="louis-vuitton">Louis Vuitton</option>
+          <option value="valentino">Valentino</option>
+          <option value="versace">Versace</option>
+          <option value="yves-saint-laurent">Yves Saint Laurent</option>
+        </select>
+      </div>
     </div>
   
-    <div class="filters">
-      <select id="availabilityFilter" name="availability">
-        <option value="all">Gender</option>
-        <option value="men">MEN</option>
-        <option value="women">WOMEN</option>
-        <option value="unisex">UNISEX</option>
-      </select>
-      
-      <select id="brandFilter">
-        <option value="all">Brands</option>
-        <option value="azzaro">Azzaro</option>
-        <option value="carolina-herrera">Carolina Herrera</option>
-        <option value="chanel">Chanel</option>
-        <option value="creed">Creed</option>
-        <option value="emporio-armani">Emporio Armani</option>
-        <option value="gucci">Gucci</option>
-        <option value="hugo-boss">Hugo Boss</option>
-        <option value="jean-paul-gaultier">Jean Paul Gaultier</option>
-        <option value="lancome">Lancome</option>
-        <option value="louis-vuitton">Louis Vuitton</option>
-        <option value="valentino">Valentino</option>
-        <option value="versace">Versace</option>
-        <option value="yves-saint-laurent">Yves Saint Laurent</option>
-      </select>
-    </div>
-
     <div class="product-grid">
       <div class="product" data-brand="jean-paul-gaultier" data-gender="men">
         <img src="/images/product1.jpg" alt="Jean Paul Gaultier Le Male Le Parfum EDP Intense">
@@ -362,6 +373,28 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <div class="mobile-bottom-nav">
+    <button class="mobile-nav-btn" id="mobileHomeBtn">
+      <ion-icon name="home-outline"></ion-icon>
+      <span>Home</span>
+    </button>
+    <button class="mobile-nav-btn" id="mobileSearchBtn">
+      <ion-icon name="search-outline"></ion-icon>
+      <span>Search</span>
+    </button>
+    <button class="mobile-nav-btn" id="mobileUserBtn">
+      <ion-icon name="person-outline"></ion-icon>
+      <span>Account</span>
+    </button>
+    <button class="mobile-nav-btn" id="mobileCartBtn">
+      <ion-icon name="bag-handle-outline"></ion-icon>
+      <span>Cart</span>
+      <span class="count" id="mobileCartCount">0</span>
+    </button>
+  </div>
+  
+  
 
 </body>
 
